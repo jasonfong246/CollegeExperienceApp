@@ -2,7 +2,7 @@ import React from "react";
 import {Text,View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Login, Home } from "./screens";
+import { Login, Home, Choice1Test, Choice2Test,Choice3Test  } from "./screens";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +13,13 @@ export default function App () {
         <Stack.Screen 
             name="Login" component={Login} />
         <Stack.Screen 
-            name="Home" component={Home} />    
+            name="Home" component={Home} />
+        <Stack.Screen 
+            name="Choice1Test" component={Choice1Test} />
+        <Stack.Screen 
+            name="Choice2Test" component={Choice2Test} />      
+        <Stack.Screen 
+            name="Choice3Test" component={Choice3Test} />
       </Stack.Navigator>
     </NavigationContainer>
   );
