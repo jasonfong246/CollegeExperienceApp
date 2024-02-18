@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, Text, Button, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import jsonData from './example.json'
 
 const Home = () => {
   const navigation = useNavigation();
+  const [message, setMessage] = useState('');
 
   const handleLogout = () => {
     // Here you can implement logout logic if needed
@@ -22,8 +24,7 @@ const Home = () => {
   };
 
   const handleChoice3TestChange = () => {
-    // A function call that changes screen to Choice 2 Test
-    navigation.navigate("Choice3Test");
+    navigation.navigate("Choice3Test", { message: jsonData.message });
   };
 
   return (
@@ -52,7 +53,7 @@ const Home = () => {
       <View style = {styles.button}>
         <Button title="Begin THE Game" onPress={handleChoice3TestChange} />
       </View>
-      
+      <Text>{message}</Text>
     </View>
     
   );
