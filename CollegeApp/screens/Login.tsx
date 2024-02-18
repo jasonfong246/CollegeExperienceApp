@@ -24,6 +24,7 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.topCorner}>SWE Capstone Team NULL</Text>
       <Text style={styles.title}>Login</Text>
       {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
       <TextInput
@@ -54,6 +55,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     marginBottom: 20,
+  },
+  topCorner: {
+    position: 'absolute',
+    top:5,
+    left:10,
+    fontWeight: 'bold',
   },
   input: {
     width: '100%',
