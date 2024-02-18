@@ -9,7 +9,7 @@ const Choice1Test = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Choice 1 Filler Text Here</Text>
+      <Text style={styles.title}>MEET THE TEAM</Text>
       
       
     </View>

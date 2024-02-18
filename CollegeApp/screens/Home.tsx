@@ -41,16 +41,16 @@ const Home = () => {
         source={{uri: 'https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1786&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}}
         style={{width: 400, height: 400}}></Image>
 
-      <Text style={styles.title}>Choose From the Following:</Text>
+      <Text style={styles.title}>What Should We Do?</Text>
 
       <View style = {styles.button}>
-        <Button title="Choice1Test" onPress={handleChoice1TestChange} />
+        <Button title="Meet THE Team" onPress={handleChoice1TestChange} />
       </View>
       <View style = {styles.button}>
-        <Button title="Choice2Test" onPress={handleChoice2TestChange} />
+        <Button title="About THE Project" onPress={handleChoice2TestChange} />
       </View>
       <View style = {styles.button}>
-        <Button title="Choice3Test" onPress={handleChoice3TestChange} />
+        <Button title="Begin THE Game" onPress={handleChoice3TestChange} />
       </View>
       
     </View>
