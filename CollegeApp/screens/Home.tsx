@@ -23,8 +23,8 @@ const Home = () => {
     navigation.navigate("Choice2Test");
   };
 
-  const handleChoice3TestChange = () => {
-    navigation.navigate("Choice3Test", { message: jsonData.message });
+  const handlePrologueScreenChange = () => {
+    navigation.navigate("PrologueScreen", { message: jsonData.message });
   };
 
   return (
@@ -51,7 +51,7 @@ const Home = () => {
         <Button title="About THE Project" onPress={handleChoice2TestChange} />
       </View>
       <View style = {styles.button}>
-        <Button title="Begin THE Game" onPress={handleChoice3TestChange} />
+        <Button title="Begin THE Game" onPress={handlePrologueScreenChange} />
       </View>
       <Text>{message}</Text>
     </View>
