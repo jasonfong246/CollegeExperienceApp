@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const  prologueTexts = [
   "Narrator: In the heart of a world brimming with possibilities, where dreams are nurtured and destinies are forged, lies the gateway to an adventure unlike any other—a journey through the hallowed halls of college life. Here, at the crossroads of the future, every choice echoes into the vast unknown, shaping the path of what’s to come. But be wary, for not all paths lead to light.",
@@ -12,13 +13,14 @@ const  prologueTexts = [
 
 const PrologueScreen = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigation = useNavigation();
 
   const handleTextPress = () => {
     if (currentIndex <  prologueTexts.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
       // Here you could navigate to the next part of your app, e.g., the main menu
-      console.log('End of prologue. Navigate to next screen.');
+      navigation.navigate('NameInputScreen');
     }
   };
 

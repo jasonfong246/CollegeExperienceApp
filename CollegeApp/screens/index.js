@@ -3,6 +3,8 @@ import Login from "./Login";
 import Choice1Test from "./Choice1Test";
 import Choice2Test from "./Choice2Test";
 import PrologueScreen from "./PrologueScreen";
+import NameInputScreen from "./NameInputScreen";
+import GenderSelectionScreen from "./GenderSelectionScreen";
 
 export{
     Home,
@@ -10,4 +12,6 @@ export{
     Choice1Test,
     Choice2Test,
     PrologueScreen,
+    NameInputScreen,
+    GenderSelectionScreen,
 }
