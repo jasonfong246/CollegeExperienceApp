@@ -1,14 +1,14 @@
-// GenderSelectionScreen.tsx
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const GenderSelectionScreen = ({ route, navigation }) => {
-  const { name } = route.params; // Retrieve the name from route params
+  //const { name } = route.params; // Retrieve the name from route params
 
   const selectGender = (gender) => {
     // Here you can navigate to the next screen and pass both name and gender
-    console.log(name, gender);
-    // navigation.navigate('NextScreen', { name, gender });
+    console.log(gender);
+    navigation.navigate('Scene1');
   };
 
   return (
