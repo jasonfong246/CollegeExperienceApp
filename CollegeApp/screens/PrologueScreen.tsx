@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Button, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const  prologueTexts = [
@@ -14,6 +14,7 @@ const  prologueTexts = [
 const PrologueScreen = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigation = useNavigation();
+  const ProlougeIMg=require("./ProloguePic.jpg");
 
   const handleTextPress = () => {
     if (currentIndex <  prologueTexts.length - 1) {
@@ -24,8 +25,23 @@ const PrologueScreen = () => {
     }
   };
 
+  const handleLogout = () => {
+    // Here you can implement logout logic if needed
+    // For simplicity, this example just navigates back to the Login screen
+    navigation.navigate("Login");
+  };
+
   return (
+    
     <View style={styles.container}>
+       <Text style={styles.topCorner}>SWE Capstone Team NULL</Text>
+      
+      <View style={styles.logout}>
+        <Button title="Logout" onPress={handleLogout} />
+      </View>
+      <Image source={ProlougeIMg} style={{width: 600, height: 350, alignSelf: 'center',position: 'absolute',top: 50}}>
+
+      </Image>
       <TouchableOpacity style={styles.textContainer} onPress={handleTextPress}>
         <Text style={styles.text}>{ prologueTexts[currentIndex]}</Text>
       </TouchableOpacity>
@@ -48,6 +64,31 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
   },
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
+    top: 20,
+    fontWeight: 'bold',
+  },
+
+  button: {
+    fontSize: 24,
+    marginBottom: 20,
+    padding: 0,
+  },
+  logout: {
+    position: 'absolute',
+    top:5,
+    right:10,
+    height: 40,
+    
+  },
+  topCorner: {
+    position: 'absolute',
+    top:5,
+    left:10,
+    fontWeight: 'bold',
+  }
 });
 
 export default  PrologueScreen;

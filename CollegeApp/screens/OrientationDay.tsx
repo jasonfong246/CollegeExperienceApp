@@ -1,7 +1,19 @@
-import React, { useState } from 'react';
+import React, {useState, useEffect} from 'react';
+import { View, Text, Button, StyleSheet, Image } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import jsonData from './example.json'
 
 // Define the component
 const OrientationDay = () => {
+
+  const navigation = useNavigation();
+  const route = useRoute();
+  const message = route.params?.message || '';
+  const handleLogout = () => {
+    // Here you can implement logout logic if needed
+    // For simplicity, this example just navigates back to the Login screen
+    navigation.navigate("Login");
+  };
   // Script with dialogue and choices
   const script = [
     { type: 'dialogue', text: "Alex: Good morning, everyone! Welcome to what will be some of the most memorable years of your lives. I'm Alex, a senior here, and I'll be your guide today. We’re thrilled to have you join our university family!" },
@@ -33,6 +45,15 @@ const OrientationDay = () => {
   };
 
   return (
+    <View style={styles.container}>
+    <Text style={styles.topCorner}>SWE Capstone Team NULL</Text>
+    
+    <View style={styles.logout}>
+      <Button title="Logout" onPress={handleLogout} />
+    </View>
+    
+  
+  
     <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', padding: '20px', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', maxWidth: '600px', textAlign: 'center' }}>
       {script[currentIndex].type === 'dialogue' && (
         <div onClick={advanceScript} style={{ cursor: 'pointer' }}>
@@ -49,7 +70,41 @@ const OrientationDay = () => {
         </div>
       )}
     </div>
+    </View>
   );
 };
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+   
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
+    top: 20,
+    fontWeight: 'bold',
+  },
+
+  button: {
+    fontSize: 24,
+    marginBottom: 20,
+    padding: 0,
+  },
+  logout: {
+    position: 'absolute',
+    top:5,
+    right:10,
+    height: 40,
+    
+  },
+  topCorner: {
+    position: 'absolute',
+    top:5,
+    left:10,
+    fontWeight: 'bold',
+  },
+  });
 
 export default OrientationDay;
