@@ -5,7 +5,8 @@ import Choice2Test from "./Choice2Test";
 import PrologueScreen from "./PrologueScreen";
 import NameInputScreen from "./NameInputScreen";
 import GenderSelectionScreen from "./GenderSelectionScreen";
-import Screen1 from "./Screen1";
+import OrientationDay from "./OrientationDay";
+import Scene1 from "./Scene1";
 
 export{
     Home,
@@ -15,5 +16,6 @@ export{
     PrologueScreen,
     NameInputScreen,
     GenderSelectionScreen,
-    Screen1,
+    OrientationDay,
+    Scene1,
 }

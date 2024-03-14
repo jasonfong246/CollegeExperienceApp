@@ -2,7 +2,7 @@ import React from "react";
 import {Text,View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Login, Home, Choice1Test, Choice2Test,PrologueScreen, NameInputScreen, GenderSelectionScreen, Screen1  } from "./screens";
+import { Login, Home, Choice1Test, Choice2Test,PrologueScreen, NameInputScreen, GenderSelectionScreen, OrientationDay, Scene1  } from "./screens";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +25,9 @@ export default function App () {
         <Stack.Screen 
             name="GenderSelectionScreen" component={GenderSelectionScreen} />
         <Stack.Screen 
-            name="Screen1" component={Screen1} />
+            name="OrientationDay" component={OrientationDay} />
+        <Stack.Screen 
+            name="Scene1" component={Scene1} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -7,7 +7,7 @@ const NameInputScreen = ({ navigation }) => {
 
   const handleNext = () => {
     // Pass the name to the next screen (GenderSelectionScreen) using navigation params
-    navigation.navigate('GenderSelectionScreen', { name });
+    navigation.navigate('GenderSelectionScreen');
   };
 
   return (
