@@ -7,8 +7,7 @@ const GenderSelectionScreen = ({ route, navigation }) => {
 
   const selectGender = (gender) => {
     // Here you can navigate to the next screen and pass both name and gender
-    console.log(name, gender);
-    // navigation.navigate('NextScreen', { name, gender });
+   navigation.navigate('Screen1', { name, gender });
   };
 
   return (
