@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const GenderSelectionScreen = ({ route, navigation }) => {
   //const { name } = route.params; // Retrieve the name from route params
-
+  const genderPic=require("./GenderIMG.jpeg");
   const selectGender = (gender) => {
     // Here you can navigate to the next screen and pass both name and gender
     navigation.navigate('Scene1');
@@ -12,6 +12,7 @@ const GenderSelectionScreen = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Image source={genderPic} style={{width: 600, height: 350, alignSelf: 'center',position: 'absolute',top: 0}}></Image>
       <Text style={styles.question}>In this world of endless narratives, how does your character's essence manifest?</Text>
       <View style={styles.optionsContainer}>
         <TouchableOpacity
@@ -58,10 +59,16 @@ const styles = StyleSheet.create({
       paddingVertical: 10,
       paddingHorizontal: 20,
       borderRadius: 8,
+      top: 100
     },
     optionText: {
       fontSize: 18,
       fontWeight: 'bold',
+    },
+    question: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      top:100
     },
   });
 

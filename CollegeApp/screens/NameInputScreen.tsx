@@ -1,10 +1,12 @@
 // NameInputScreen.tsx
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, KeyboardAvoidingView, Platform, Image } from 'react-native';
 
 const NameInputScreen = ({ navigation }) => {
   const [name, setName] = useState('');
-
+  const NameImage=require("./WhoWillYouBe.jpg");
+  const GreyBoxImage=require("./GREYBOX.png");
+  const WhiteBoxImage=require("./WhiteBox.png");
   const handleNext = () => {
     // Pass the name to the next screen (GenderSelectionScreen) using navigation params
     navigation.navigate('GenderSelectionScreen');
@@ -16,6 +18,8 @@ const NameInputScreen = ({ navigation }) => {
       style={styles.container}
     >
       <View style={styles.content}>
+      <Image source={NameImage} style={{width: 600, height: 350, alignSelf: 'center',position: 'absolute',top: 0}}></Image>
+      <Image source={WhiteBoxImage} style={{width: 420, height: 100, alignSelf: 'center',position: 'absolute',top: 220}}></Image>
         <Text style={styles.question}>In a world where every name carries the weight of unseen stories, what name echoes within you?</Text>
         <TextInput
           style={styles.input}
@@ -47,6 +51,7 @@ const styles = StyleSheet.create({
   },
   question: {
     fontSize: 18,
+    fontWeight: 'bold',
     color: '#333',
     textAlign: 'center',
     marginBottom: 24,
@@ -59,6 +64,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 16,
     fontSize: 16,
+    top:30,
     width: '100%',
     marginBottom: 20,
     fontFamily: 'Times New Roman',
@@ -68,6 +74,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 16,
     width: '100%',
+    top:20,
     alignItems: 'center',
   },
   buttonText: {

@@ -1,13 +1,44 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Image, Animated } from 'react-native';
+import type { PropsWithChildren } from 'react';
+import type { ViewStyle } from 'react-native';
+import Sound from 'react-native-sound';
+
+type FadeInViewProps = PropsWithChildren<{ style: ViewStyle }>;
+
+const FadeInView: React.FC<FadeInViewProps> = (props) => {
+  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
+
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 1000, // Adjust duration as needed
+      useNativeDriver: true,
+    }).start();
+  }, [fadeAnim]);
+
+  return (
+    <Animated.View // Special animatable View
+      style={{
+        ...props.style,
+        opacity: fadeAnim, // Bind opacity to animated value
+      }}>
+      {props.children}
+    </Animated.View>
+  );
+};
+
 
 const Scene1 = () => {
+
+  
   // Script with dialogue and choices
   const script = [
     { type: 'dialogue', text: "Alex: Good morning, everyone! Welcome to what will be some of the most memorable years of your lives. I'm Alex, a senior here, and I'll be your guide today. We’re thrilled to have you join our university family!" },
     { type: 'dialogue', text: "Alex: Here, you'll face choices that shape your future. Today's no different. We’ve organized two fantastic opportunities for you to start off on the right foot. First, an academic seminar designed to equip you with essential skills for your studies. And second, a campus tour that not only shows you around but also helps you meet fellow students and make early connections." },
     { type: 'dialogue', text: "Alex: So, what’s it going to be? Will you dive into the academic side and get a head start on your classes? Or will you take this chance to explore the campus and start building your social network?" },
-    { type: 'choices', options: [
+    {
+      type: 'choices', options: [
         { id: '1', text: "Academic Seminar: 'I’m here to excel academically. I'll attend the seminar.'" },
         { id: '2', text: "Campus Tour: 'I want to see what campus life has to offer and meet new people.'" },
         { id: '3', text: "Skip Both Events: 'I think I'll skip these. Today feels like a day to relax on my own.'" },
@@ -15,9 +46,25 @@ const Scene1 = () => {
       ]
     }
   ];
-
+  const collegPic = require("./COLLEGEOrientation2.jpg");
+  const alexPic = require("./ALEX.png");
+  const playerPic = require("./Player.png");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [choiceMade, setChoiceMade] = useState(false);
+
+  const sound = new Sound('./2.mp3', Sound.MAIN_BUNDLE, (error) => {
+    if (error) {
+      console.log('Failed to load the sound', error);
+      return;
+    }
+  });
+  sound.play((success) => {
+    if (success) {
+      console.log('Sound played successfully');
+    } else {
+      console.log('Failed to play the sound');
+    }
+  });//Test for sound :(
 
   const advanceScript = () => {
     if (currentIndex < script.length - 1 && !choiceMade) {
@@ -33,9 +80,31 @@ const Scene1 = () => {
 
   return (
     <View style={styles.screenContainer}>
-      <TouchableOpacity onPress={advanceScript} style={styles.dialogueBox}>
-        <Text style={styles.dialogueText}>{script[currentIndex].type === 'dialogue' ? script[currentIndex].text : ''}</Text>
-      </TouchableOpacity>
+      <Image source={collegPic} style={{ width: 400, height: 350, alignSelf: 'center', position: 'absolute', top: 50 }}></Image>
+
+      <FadeInView
+        style={{
+          width: 250,
+          height: 250,
+          backgroundColor: 'transparent', // Set background to transparent for Image
+        }}>
+        <Image
+          source={alexPic} // Replace with your image source
+          style={{
+            flex: 1,
+            width: '100%',
+            height: '100%',
+            resizeMode: 'contain', // Adjust resizeMode as needed
+          }}
+        />
+      </FadeInView>
+
+      {(currentIndex !== 3 && script[currentIndex].type === 'dialogue') && (
+        <TouchableOpacity onPress={advanceScript} style={styles.dialogueBox}>
+          <Text style={styles.dialogueText}>{script[currentIndex].text}</Text>
+        </TouchableOpacity>
+      )}
+
       {script[currentIndex].type === 'choices' && !choiceMade && (
         script[currentIndex].options.map((option) => (
           <TouchableOpacity key={option.id} onPress={() => handleChoice(option.id)} style={styles.choiceContainer}>
@@ -49,11 +118,11 @@ const Scene1 = () => {
 
 
 const styles = StyleSheet.create({
-    screenContainer: {
-        flex: 1,
-        justifyContent: 'flex-end', // Keeps the dialogue box at the bottom
-        backgroundColor: '#fff',
-      },
+  screenContainer: {
+    flex: 1,
+    justifyContent: 'flex-end', // Keeps the dialogue box at the bottom
+    backgroundColor: '#fff',
+  },
   dialogueBox: {
     paddingHorizontal: 20,
     paddingVertical: 10,
@@ -104,3 +173,4 @@ const styles = StyleSheet.create({
 });
 
 export default Scene1;
+

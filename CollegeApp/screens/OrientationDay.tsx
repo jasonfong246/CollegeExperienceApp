@@ -8,6 +8,7 @@ const OrientationDay = () => {
 
   const navigation = useNavigation();
   const route = useRoute();
+  const collegPic=require("./OrientationCollege1.jpg");
   const message = route.params?.message || '';
   const handleLogout = () => {
     // Here you can implement logout logic if needed
@@ -53,7 +54,7 @@ const OrientationDay = () => {
     </View>
     
   
-  
+    <Image source={collegPic} style={{width: 600, height: 350, alignSelf: 'center',position: 'absolute',top: 0}}></Image>
     <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', padding: '20px', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', maxWidth: '600px', textAlign: 'center' }}>
       {script[currentIndex].type === 'dialogue' && (
         <div onClick={advanceScript} style={{ cursor: 'pointer' }}>
