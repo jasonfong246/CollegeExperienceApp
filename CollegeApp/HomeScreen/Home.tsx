@@ -15,12 +15,12 @@ const Home = () => {
 
   const handleChoice1TestChange = () => {
      // A function call that changes screen to Choice 1 Test
-    navigation.navigate("Choice1Test");
+    navigation.navigate("TheTeam");
   };
 
   const handleChoice2TestChange = () => {
     // A function call that changes screen to Choice 2 Test
-    navigation.navigate("Choice2Test");
+    navigation.navigate("About");
   };
 
   const handlePrologueScreenChange = () => {
