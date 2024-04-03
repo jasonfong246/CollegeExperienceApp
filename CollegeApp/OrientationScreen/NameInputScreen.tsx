@@ -1,15 +1,32 @@
-// NameInputScreen.tsx
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, KeyboardAvoidingView, Platform, Image } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const NameInputScreen = ({ navigation }) => {
   const [name, setName] = useState('');
-  const NameImage=require("./WhoWillYouBe.jpg");
-  const GreyBoxImage=require("./GREYBOX.png");
-  const WhiteBoxImage=require("./WhiteBox.png");
-  const handleNext = () => {
-    // Pass the name to the next screen (GenderSelectionScreen) using navigation params
-    navigation.navigate('GenderSelectionScreen');
+  const NameImage = require("./WhoWillYouBe.jpg");
+  const GreyBoxImage = require("./GREYBOX.png");
+  const WhiteBoxImage = require("./WhiteBox.png");
+
+  const storeName = async (name) => {
+    try {
+      await AsyncStorage.setItem('@PlayerName', name);
+      console.log('Name successfully saved');
+    } catch (e) {
+      console.log('Failed to save the name to the storage', e);
+    }
+  };
+
+  const handleNext = async () => {
+    // Save the name to AsyncStorage before navigating
+    if (name) {
+      await storeName(name);
+      // Pass the name to the next screen (GenderSelectionScreen) using navigation params
+      navigation.navigate('GenderSelectionScreen', { name });
+    } else {
+      console.log('Please enter a name');
+      // Optionally, handle the case where no name is entered before proceeding
+    }
   };
 
   return (
@@ -18,8 +35,8 @@ const NameInputScreen = ({ navigation }) => {
       style={styles.container}
     >
       <View style={styles.content}>
-      <Image source={NameImage} style={{width: 600, height: 350, alignSelf: 'center',position: 'absolute',top: 0}}></Image>
-      <Image source={WhiteBoxImage} style={{width: 420, height: 100, alignSelf: 'center',position: 'absolute',top: 220}}></Image>
+        <Image source={NameImage} style={{width: 600, height: 350, alignSelf: 'center', position: 'absolute', top: 0}}></Image>
+        <Image source={WhiteBoxImage} style={{width: 420, height: 100, alignSelf: 'center', position: 'absolute', top: 220}}></Image>
         <Text style={styles.question}>In a world where every name carries the weight of unseen stories, what name echoes within you?</Text>
         <TextInput
           style={styles.input}
@@ -55,7 +72,7 @@ const styles = StyleSheet.create({
     color: '#333',
     textAlign: 'center',
     marginBottom: 24,
-    fontFamily: 'Times New Roman', // iOS default serif font
+    fontFamily: 'Times New Roman',
   },
   input: {
     borderWidth: 1,
@@ -64,7 +81,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 16,
     fontSize: 16,
-    top:30,
+    top: 30,
     width: '100%',
     marginBottom: 20,
     fontFamily: 'Times New Roman',
@@ -74,7 +91,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 16,
     width: '100%',
-    top:20,
+    top: 20,
     alignItems: 'center',
   },
   buttonText: {
@@ -82,7 +99,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'Times New Roman',
   },
-  // If Times New Roman is not available or if you're targeting Android, consider a similar serif font or use the default sans-serif.
 });
 
 export default NameInputScreen;
