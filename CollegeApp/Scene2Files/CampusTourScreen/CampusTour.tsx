@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, Animated } from 'react
 import type { PropsWithChildren } from 'react';
 import type { ViewStyle } from 'react-native';
 import Sound from 'react-native-sound';
-import { useNavigation } from '@react-navigation/native';
 
 type FadeInViewProps = PropsWithChildren<{ style: ViewStyle }>;
 
@@ -30,20 +29,28 @@ const FadeInView: React.FC<FadeInViewProps> = (props) => {
 };
 
 
-const Scene1 = () => {
-  const navigation = useNavigation();
+const CampusTour = () => {
+
   
   // Script with dialogue and choices
   const script = [
-    { type: 'dialogue', text: "Alex: Good morning, everyone! Welcome to what will be some of the most memorable years of your lives. I'm Alex, a senior here, and I'll be your guide today. We’re thrilled to have you join our university family!" },
-    { type: 'dialogue', text: "Alex: Here, you'll face choices that shape your future. Today's no different. We’ve organized two fantastic opportunities for you to start off on the right foot. First, an academic seminar designed to equip you with essential skills for your studies. And second, a campus tour that not only shows you around but also helps you meet fellow students and make early connections." },
-    { type: 'dialogue', text: "Alex: So, what’s it going to be? Will you dive into the academic side and get a head start on your classes? Or will you take this chance to explore the campus and start building your social network?" },
+    { type: 'dialogue', text: "The sun shines brightly over the campus, illuminating the historic and modern buildings alike. Students from Choice 2 gather outside the main entrance, buzzing with excitement and curiosity. The TOUR GUIDE, a friendly junior with an infectious enthusiasm for campus life, holds a clipboard and wears a bright 'Ask Me Anything!' badge." },
+    { type: 'dialogue', text: "TOUR GUIDE (LUCAS): Hey everyone! I’m Lucas, and I’ll be your guide today. We’ve got a lot of ground to cover, so let’s get started. This tour isn’t just about seeing the sights; it’s about envisioning your future here, finding your place in our community." },
+    { type: 'dialogue', text: "The group sets off, moving from one landmark to another. Lucas shares stories of student achievements, points out hidden gems, and explains the significance of various campus facilities." },
+    { type: 'dialogue', text: "The tour arrives at the bustling student union building. Lucas highlights the clubs and organizations, emphasizing the diversity and inclusivity of the community." },
+    { type: 'dialogue', text: "LUCAS: This is where ideas meet action. Whether you’re into robotics, environmental advocacy, or even quidditch, there’s a place for everyone here. And if you don’t find your passion represented, you have the support to start something new!" },
+    { type: 'dialogue', text: "The students listen, intrigued by the possibilities. Among them, YOU feel a spark of excitement at the idea of joining a community where your interests can thrive." },
+    { type: 'dialogue', text: "The tour reaches a scenic green space, where students are seen studying, socializing, and enjoying outdoor activities. Lucas stops, allowing everyone to soak in the vibrant campus life." },
+    { type: 'dialogue', text: "LUCAS: College is more than just academics; it’s about building relationships and making memories. These green spaces are perfect for that. They’re the heart of our campus community." },
+    { type: 'dialogue', text: "At this moment, YOU notice a group of students setting up for what appears to be a live music performance. The idea of joining or even forming a music group crosses your mind, showcasing the spontaneous opportunities for engagement and creativity on campus." },
+    { type: 'dialogue', text: "The tour ends back at the main entrance. Students are exchanging numbers and making plans to explore their interests together." },
+    { type: 'dialogue', text: "LUCAS: Remember, your college experience is what you make of it. Get involved, stay curious, and don’t hesitate to reach out for help or advice. We’re all here to support each other." },
+    { type: 'dialogue', text: "As the group disperses, YOU are faced with a choice:" },
     {
       type: 'choices', options: [
-        { id: '1', text: "Academic Seminar: 'I’m here to excel academically. I'll attend the seminar.'" },
-        { id: '2', text: "Campus Tour: 'I want to see what campus life has to offer and meet new people.'" },
-        { id: '3', text: "Skip Both Events: 'I think I'll skip these. Today feels like a day to relax on my own.'" },
-        { id: '4', text: "Wander Alone: 'I prefer discovering the campus by myself. Who knows what I’ll find?'" }
+        { id: '1', text: " Join a Club/Organization " },
+        { id: '2', text: " Volunteer for a Campus Initiative " },
+        { id: '3', text: " Attend the Live Music Event " }
       ]
     }
   ];
@@ -75,15 +82,8 @@ const Scene1 = () => {
 
   const handleChoice = (choiceId: string) => {
     console.log("Choice selected:", choiceId);
-    if(choiceId==1){
-      navigation.navigate("AcademicSeminar");
-    }else if(choiceId==2){
-      navigation.navigate("CampusTour");
-    }else if(choiceId==3){
-      navigation.navigate("DormIntro");
-    }else if(choiceId==4){
-      navigation.navigate("WanderAlone");
-    }
+    // Handle the choice selection here
+    setChoiceMade(true);
   };
 
   return (
@@ -107,7 +107,7 @@ const Scene1 = () => {
         />
       </FadeInView>
 
-      {(currentIndex !== 3 && script[currentIndex].type === 'dialogue') && (
+      {(script[currentIndex].type === 'dialogue') && (
         <TouchableOpacity onPress={advanceScript} style={styles.dialogueBox}>
           <Text style={styles.dialogueText}>{script[currentIndex].text}</Text>
         </TouchableOpacity>
@@ -180,5 +180,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Scene1;
+export default CampusTour;
 

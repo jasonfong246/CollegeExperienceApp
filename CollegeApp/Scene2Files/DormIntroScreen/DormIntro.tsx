@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, Animated } from 'react
 import type { PropsWithChildren } from 'react';
 import type { ViewStyle } from 'react-native';
 import Sound from 'react-native-sound';
-import { useNavigation } from '@react-navigation/native';
 
 type FadeInViewProps = PropsWithChildren<{ style: ViewStyle }>;
 
@@ -30,20 +29,24 @@ const FadeInView: React.FC<FadeInViewProps> = (props) => {
 };
 
 
-const Scene1 = () => {
-  const navigation = useNavigation();
+const DormIntro = () => {
+
   
   // Script with dialogue and choices
   const script = [
-    { type: 'dialogue', text: "Alex: Good morning, everyone! Welcome to what will be some of the most memorable years of your lives. I'm Alex, a senior here, and I'll be your guide today. We’re thrilled to have you join our university family!" },
-    { type: 'dialogue', text: "Alex: Here, you'll face choices that shape your future. Today's no different. We’ve organized two fantastic opportunities for you to start off on the right foot. First, an academic seminar designed to equip you with essential skills for your studies. And second, a campus tour that not only shows you around but also helps you meet fellow students and make early connections." },
-    { type: 'dialogue', text: "Alex: So, what’s it going to be? Will you dive into the academic side and get a head start on your classes? Or will you take this chance to explore the campus and start building your social network?" },
+    { type: 'dialogue', text: "YOU head to your new dorm room, seeking a quiet space amid the day's excitement. The room, bathed in sunlight, awaits the personal touch that will transform it into a home." },
+    { type: 'dialogue', text: "The tranquility is pleasantly interrupted by the entrance of your roommate, TAYLOR, whose arrival brings a new energy into the room. With boxes labeled “Books,” “Tech,” and “Party Supplies,” Taylor’s vibrant personality is immediately evident." },
+    { type: 'dialogue', text: "TAYLOR: Hey! I guess you’re my roommate. I’m Taylor. Just got back from exploring the campus. It’s really great to meet you!" },
+    { type: 'dialogue', text: "In the shared task of unpacking and decorating, a friendship begins to bloom, rooted in mutual interests and laughter." },
+    { type: 'dialogue', text: "As the room takes shape, so does your connection with Taylor. In the midst of sharing stories, Taylor suddenly remembers something important." },
+    { type: 'dialogue', text: "TAYLOR (excitedly): Oh! There’s this awesome party happening tonight on campus. It’s sort of a welcome bash for new students. I was thinking of going. Wanna join? It’ll be fun, and we could meet some more people together!" },
+    { type: 'dialogue', text: "Faced with Taylor's invitation, YOU realize the evening could unfold in several ways. It's a moment of decision that could define the beginning of your college social life." },
+    
     {
       type: 'choices', options: [
-        { id: '1', text: "Academic Seminar: 'I’m here to excel academically. I'll attend the seminar.'" },
-        { id: '2', text: "Campus Tour: 'I want to see what campus life has to offer and meet new people.'" },
-        { id: '3', text: "Skip Both Events: 'I think I'll skip these. Today feels like a day to relax on my own.'" },
-        { id: '4', text: "Wander Alone: 'I prefer discovering the campus by myself. Who knows what I’ll find?'" }
+        { id: '1', text: " Accept the Party Invitation " },
+        { id: '2', text: " Politely Decline and Suggest an Alternative " },
+        { id: '3', text: " Ask for a Raincheck " }
       ]
     }
   ];
@@ -75,15 +78,8 @@ const Scene1 = () => {
 
   const handleChoice = (choiceId: string) => {
     console.log("Choice selected:", choiceId);
-    if(choiceId==1){
-      navigation.navigate("AcademicSeminar");
-    }else if(choiceId==2){
-      navigation.navigate("CampusTour");
-    }else if(choiceId==3){
-      navigation.navigate("DormIntro");
-    }else if(choiceId==4){
-      navigation.navigate("WanderAlone");
-    }
+    // Handle the choice selection here
+    setChoiceMade(true);
   };
 
   return (
@@ -107,7 +103,7 @@ const Scene1 = () => {
         />
       </FadeInView>
 
-      {(currentIndex !== 3 && script[currentIndex].type === 'dialogue') && (
+      {(script[currentIndex].type === 'dialogue') && (
         <TouchableOpacity onPress={advanceScript} style={styles.dialogueBox}>
           <Text style={styles.dialogueText}>{script[currentIndex].text}</Text>
         </TouchableOpacity>
@@ -180,5 +176,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Scene1;
+export default DormIntro;
 

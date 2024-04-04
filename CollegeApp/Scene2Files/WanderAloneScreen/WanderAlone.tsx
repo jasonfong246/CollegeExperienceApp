@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, Animated } from 'react
 import type { PropsWithChildren } from 'react';
 import type { ViewStyle } from 'react-native';
 import Sound from 'react-native-sound';
-import { useNavigation } from '@react-navigation/native';
 
 type FadeInViewProps = PropsWithChildren<{ style: ViewStyle }>;
 
@@ -30,20 +29,22 @@ const FadeInView: React.FC<FadeInViewProps> = (props) => {
 };
 
 
-const Scene1 = () => {
-  const navigation = useNavigation();
+const WanderAlone = () => {
+
   
   // Script with dialogue and choices
   const script = [
-    { type: 'dialogue', text: "Alex: Good morning, everyone! Welcome to what will be some of the most memorable years of your lives. I'm Alex, a senior here, and I'll be your guide today. We’re thrilled to have you join our university family!" },
-    { type: 'dialogue', text: "Alex: Here, you'll face choices that shape your future. Today's no different. We’ve organized two fantastic opportunities for you to start off on the right foot. First, an academic seminar designed to equip you with essential skills for your studies. And second, a campus tour that not only shows you around but also helps you meet fellow students and make early connections." },
-    { type: 'dialogue', text: "Alex: So, what’s it going to be? Will you dive into the academic side and get a head start on your classes? Or will you take this chance to explore the campus and start building your social network?" },
+    { type: 'dialogue', text: "Eager to chart your own course, YOU decide to explore the campus solo, bypassing the organized orientation events. With a spirit of adventure, you embark on a personal journey to uncover the hidden wonders of your new academic home." },
+    { type: 'dialogue', text: "Your first discovery is the historic heart of the campus, where the echoes of the past meet the dynamic energy of the present. Each building tells a tale of innovation, struggle, and triumph, inspiring you with a deep sense of connection to the generations of students who have walked these paths before." },
+    { type: 'dialogue', text: "Drawn to the creativity on display, you find yourself amidst a field of provocative art installations. Each piece, a bold commentary on contemporary issues, sparks a fire in you to engage with the campus's cultural life actively. The thought of contributing your voice to this creative cacophony is exhilarating." },
+    { type: 'dialogue', text: "Venturing further, you stumble upon a serene courtyard, a hidden sanctuary perfect for introspection and creativity. It's here, in this secluded space, that you feel a profound sense of belonging and a desire to carve out your own niche within this sprawling academic landscape." },
+    { type: 'dialogue', text: "As you prepare to leave this tranquil spot, a brightly colored flyer catches your eye. It announces a startup pitch competition focused on innovative solutions for campus sustainability. The challenge is open to all, seeking bold ideas and fresh perspectives." },
+    { type: 'dialogue', text: "Fired up by the opportunity to make an impact and driven by a surge of entrepreneurial spirit, YOU are at a crossroads, faced with thrilling options:" },
     {
       type: 'choices', options: [
-        { id: '1', text: "Academic Seminar: 'I’m here to excel academically. I'll attend the seminar.'" },
-        { id: '2', text: "Campus Tour: 'I want to see what campus life has to offer and meet new people.'" },
-        { id: '3', text: "Skip Both Events: 'I think I'll skip these. Today feels like a day to relax on my own.'" },
-        { id: '4', text: "Wander Alone: 'I prefer discovering the campus by myself. Who knows what I’ll find?'" }
+        { id: '1', text: " Join the Startup Pitch Competition: " },
+        { id: '2', text: " Collaborate with the Art Collective " },
+        { id: '3', text: " Organize an Exploration Club " }
       ]
     }
   ];
@@ -75,15 +76,8 @@ const Scene1 = () => {
 
   const handleChoice = (choiceId: string) => {
     console.log("Choice selected:", choiceId);
-    if(choiceId==1){
-      navigation.navigate("AcademicSeminar");
-    }else if(choiceId==2){
-      navigation.navigate("CampusTour");
-    }else if(choiceId==3){
-      navigation.navigate("DormIntro");
-    }else if(choiceId==4){
-      navigation.navigate("WanderAlone");
-    }
+    // Handle the choice selection here
+    setChoiceMade(true);
   };
 
   return (
@@ -107,7 +101,7 @@ const Scene1 = () => {
         />
       </FadeInView>
 
-      {(currentIndex !== 3 && script[currentIndex].type === 'dialogue') && (
+      {(script[currentIndex].type === 'dialogue') && (
         <TouchableOpacity onPress={advanceScript} style={styles.dialogueBox}>
           <Text style={styles.dialogueText}>{script[currentIndex].text}</Text>
         </TouchableOpacity>
@@ -180,5 +174,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Scene1;
+export default WanderAlone;
 
