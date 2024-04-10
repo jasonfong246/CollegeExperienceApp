@@ -49,7 +49,7 @@ const Scene1 = () => {
   ];
   const collegPic = require("./COLLEGEOrientation2.jpg");
   const alexPic = require("./ALEX.png");
-  const playerPic = require("./Player.png");
+  //const playerPic = require("./Player.png");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [choiceMade, setChoiceMade] = useState(false);
 
