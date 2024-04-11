@@ -2,7 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Animated } from 'react-native';
 import type { PropsWithChildren } from 'react';
 import type { ViewStyle } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import Sound from 'react-native-sound';
+import styles from './styles';
 
 type FadeInViewProps = PropsWithChildren<{ style: ViewStyle }>;
 
@@ -30,7 +32,7 @@ const FadeInView: React.FC<FadeInViewProps> = (props) => {
 
 
 const AcademicSeminar = () => {
-
+  const navigation = useNavigation();
   
   // Script with dialogue and choices
   const script = [
@@ -48,18 +50,7 @@ const AcademicSeminar = () => {
     { type: 'dialogue', text: "Samantha: Remember, your education is what you make of it. Use these skills to build a strong foundation for your future." },
     { type: 'dialogue', text: "YOU and JAMIE exchange contacts, promising to form a study group. As you step out of the classroom, you feel a sense of accomplishment and readiness for the challenges ahead." },
     { type: 'dialogue', text: "As students from the seminar disperse across the campus, you take a moment to appreciate the beauty of the university grounds. The choice to attend the seminar has sparked a newfound enthusiasm for learning and personal growth." },
-    { type: 'dialogue', text: "This is just the beginning. There’s so much more to learn and explore. I’m ready for it." },
-    { type: 'dialogue', text: "As you walk towards the library, eager to dive deeper into the topics discussed, the scene transitions to the library interior." },
-    { type: 'dialogue', text: "YOU are in the vast, quiet halls of the university library, surrounded by towering shelves of books. The air is thick with the scent of paper and the promise of knowledge. It’s a place of endless exploration, and YOU feel a strong connection to the academic heart of the campus." },
-    { type: 'dialogue', text: "While browsing through the aisles, YOU stumble upon a flyer pinned to a bulletin board. It reads:" },
-    { type: 'dialogue', text: "JOIN THE DEBATE CLUB: Sharpen Your Wit and Meet Like-minded Thinkers!Intrigued, YOU ponder your next step. This could be an opportunity to apply what you've just learned in the seminar and engage in stimulating discussions. However, YOU also remember Jamie mentioning a study group meeting soon, promising a more focused approach to academic excellence." },
-    { type: 'dialogue', text: "At this moment, YOU face a choice:" },
-    {
-      type: 'choices', options: [
-        { id: '1', text: "Join the Debate Club: 'The debate club sounds like a perfect place to continue honing my critical thinking and public speaking skills. It’s a chance to apply what I learned today and challenge myself further.'" },
-        { id: '2', text: "Join the Study Group: 'The study group with Jamie and others from the seminar will give me a solid support system and a focused environment for academic growth. It’s important to build a strong foundation in my studies from the start.'" }
-      ]
-    }
+    { type: 'dialogue', text: "This is just the beginning. There’s so much more to learn and explore. I’m ready for it." }
   ];
   const collegPic = require("./COLLEGEOrientation2.jpg");
   const alexPic = require("./ALEX.png");
@@ -82,16 +73,14 @@ const AcademicSeminar = () => {
   });//Test for sound :(
 
   const advanceScript = () => {
-    if (currentIndex < script.length - 1 && !choiceMade) {
+    if(currentIndex==script.length-1){
+      navigation.navigate("Library");
+      
+    }else if (currentIndex < script.length - 1 && !choiceMade) {
       setCurrentIndex(currentIndex + 1);
     }
   };
 
-  const handleChoice = (choiceId: string) => {
-    console.log("Choice selected:", choiceId);
-    // Handle the choice selection here
-    setChoiceMade(true);
-  };
 
   return (
     <View style={styles.screenContainer}>
@@ -119,73 +108,11 @@ const AcademicSeminar = () => {
           <Text style={styles.dialogueText}>{script[currentIndex].text}</Text>
         </TouchableOpacity>
       )}
-
-      {script[currentIndex].type === 'choices' && !choiceMade && (
-        script[currentIndex].options.map((option) => (
-          <TouchableOpacity key={option.id} onPress={() => handleChoice(option.id)} style={styles.choiceContainer}>
-            <Text style={styles.choiceText}>{option.text}</Text>
-          </TouchableOpacity>
-        ))
-      )}
     </View>
   );
 };
 
 
-const styles = StyleSheet.create({
-  screenContainer: {
-    flex: 1,
-    justifyContent: 'flex-end', // Keeps the dialogue box at the bottom
-    backgroundColor: '#fff',
-  },
-  dialogueBox: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderWidth: 1,
-    borderColor: 'black',
-    borderRadius: 10,
-    backgroundColor: 'white',
-    marginBottom: 20, // Margin from the bottom
-    alignSelf: 'stretch', // Stretch box to match parent width
-    marginHorizontal: 20, // Margin from the left and right
-  },
-  dialogueText: {
-    fontSize: 16,
-    color: 'black',
-    textAlign: 'left', // Align text to the left
-  },
-  choicesContainer: {
-    // This container ensures that the choices are rendered at the top.
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-  },
-  choiceContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    marginTop: 10,
-    borderWidth: 1,
-    borderColor: '#dedede',
-    borderRadius: 5,
-    backgroundColor: '#f8f8f8',
-    marginHorizontal: 20,
-    // The shadow and elevation properties give the choices a raised look.
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  choiceText: {
-    fontSize: 16,
-    color: 'black',
-    textAlign: 'left', // Align text to the left
-  },
-});
 
 export default AcademicSeminar;
 

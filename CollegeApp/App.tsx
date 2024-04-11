@@ -3,8 +3,8 @@ import {Text,View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TheTeam,About,Login, Home } from "./HomeScreen";
-import {  PrologueScreen, NameInputScreen, GenderSelectionScreen, OrientationDay, Scene1, ChooseAvatar  } from "./OrientationScreen";
-import { AcademicSeminar } from "./Scene2Files/AcademicScreen";
+import { PrologueScreen, NameInputScreen, GenderSelectionScreen, OrientationDay, Scene1, ChooseAvatar  } from "./OrientationScreen";
+import { AcademicSeminar, Library } from "./Scene2Files/AcademicScreen";
 import { CampusTour } from "./Scene2Files/CampusTourScreen";
 import { DormIntro } from "./Scene2Files/DormIntroScreen";
 import { WanderAlone } from "./Scene2Files/WanderAloneScreen";
@@ -37,6 +37,8 @@ export default function App () {
             name="ChooseAvatar" component={ChooseAvatar} />
         <Stack.Screen 
             name="AcademicSeminar" component={AcademicSeminar} />
+        <Stack.Screen 
+            name="Library" component={Library} />
         <Stack.Screen 
             name="CampusTour" component={CampusTour} />
         <Stack.Screen 

@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, Animated } from 'react
 import type { PropsWithChildren } from 'react';
 import type { ViewStyle } from 'react-native';
 import Sound from 'react-native-sound';
+import styles from './styles';
 
 type FadeInViewProps = PropsWithChildren<{ style: ViewStyle }>;
 
@@ -119,62 +120,6 @@ const DormIntro = () => {
     </View>
   );
 };
-
-
-const styles = StyleSheet.create({
-  screenContainer: {
-    flex: 1,
-    justifyContent: 'flex-end', // Keeps the dialogue box at the bottom
-    backgroundColor: '#fff',
-  },
-  dialogueBox: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderWidth: 1,
-    borderColor: 'black',
-    borderRadius: 10,
-    backgroundColor: 'white',
-    marginBottom: 20, // Margin from the bottom
-    alignSelf: 'stretch', // Stretch box to match parent width
-    marginHorizontal: 20, // Margin from the left and right
-  },
-  dialogueText: {
-    fontSize: 16,
-    color: 'black',
-    textAlign: 'left', // Align text to the left
-  },
-  choicesContainer: {
-    // This container ensures that the choices are rendered at the top.
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-  },
-  choiceContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    marginTop: 10,
-    borderWidth: 1,
-    borderColor: '#dedede',
-    borderRadius: 5,
-    backgroundColor: '#f8f8f8',
-    marginHorizontal: 20,
-    // The shadow and elevation properties give the choices a raised look.
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  choiceText: {
-    fontSize: 16,
-    color: 'black',
-    textAlign: 'left', // Align text to the left
-  },
-});
 
 export default DormIntro;
 
