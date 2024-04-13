@@ -30,22 +30,20 @@ const FadeInView: React.FC<FadeInViewProps> = (props) => {
 };
 
 
-const WanderAlone = () => {
+const Library = () => {
 
   
   // Script with dialogue and choices
   const script = [
-    { type: 'dialogue', text: "Eager to chart your own course, YOU decide to explore the campus solo, bypassing the organized orientation events. With a spirit of adventure, you embark on a personal journey to uncover the hidden wonders of your new academic home." },
-    { type: 'dialogue', text: "Your first discovery is the historic heart of the campus, where the echoes of the past meet the dynamic energy of the present. Each building tells a tale of innovation, struggle, and triumph, inspiring you with a deep sense of connection to the generations of students who have walked these paths before." },
-    { type: 'dialogue', text: "Drawn to the creativity on display, you find yourself amidst a field of provocative art installations. Each piece, a bold commentary on contemporary issues, sparks a fire in you to engage with the campus's cultural life actively. The thought of contributing your voice to this creative cacophony is exhilarating." },
-    { type: 'dialogue', text: "Venturing further, you stumble upon a serene courtyard, a hidden sanctuary perfect for introspection and creativity. It's here, in this secluded space, that you feel a profound sense of belonging and a desire to carve out your own niche within this sprawling academic landscape." },
-    { type: 'dialogue', text: "As you prepare to leave this tranquil spot, a brightly colored flyer catches your eye. It announces a startup pitch competition focused on innovative solutions for campus sustainability. The challenge is open to all, seeking bold ideas and fresh perspectives." },
-    { type: 'dialogue', text: "Fired up by the opportunity to make an impact and driven by a surge of entrepreneurial spirit, YOU are at a crossroads, faced with thrilling options:" },
+    { type: 'dialogue', text: "As you walk towards the library, eager to dive deeper into the topics discussed, the scene transitions to the library interior." },
+    { type: 'dialogue', text: "YOU are in the vast, quiet halls of the university library, surrounded by towering shelves of books. The air is thick with the scent of paper and the promise of knowledge. It’s a place of endless exploration, and YOU feel a strong connection to the academic heart of the campus." },
+    { type: 'dialogue', text: "While browsing through the aisles, YOU stumble upon a flyer pinned to a bulletin board. It reads:" },
+    { type: 'dialogue', text: "JOIN THE DEBATE CLUB: Sharpen Your Wit and Meet Like-minded Thinkers!Intrigued, YOU ponder your next step. This could be an opportunity to apply what you've just learned in the seminar and engage in stimulating discussions. However, YOU also remember Jamie mentioning a study group meeting soon, promising a more focused approach to academic excellence." },
+    { type: 'dialogue', text: "At this moment, YOU face a choice:" },
     {
       type: 'choices', options: [
-        { id: '1', text: " Join the Startup Pitch Competition: " },
-        { id: '2', text: " Collaborate with the Art Collective " },
-        { id: '3', text: " Organize an Exploration Club " }
+        { id: '1', text: "Join the Debate Club: 'The debate club sounds like a perfect place to continue honing my critical thinking and public speaking skills. It’s a chance to apply what I learned today and challenge myself further.'" },
+        { id: '2', text: "Join the Study Group: 'The study group with Jamie and others from the seminar will give me a solid support system and a focused environment for academic growth. It’s important to build a strong foundation in my studies from the start.'" }
       ]
     }
   ];
@@ -120,5 +118,6 @@ const WanderAlone = () => {
 };
 
 
-export default WanderAlone;
+
+export default Library;
 
