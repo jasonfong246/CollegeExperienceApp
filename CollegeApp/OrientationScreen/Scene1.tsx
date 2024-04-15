@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, Animated } from 'react
 import type { PropsWithChildren } from 'react';
 import type { ViewStyle } from 'react-native';
 import Sound from 'react-native-sound';
+import { useNavigation } from '@react-navigation/native';
 
 type FadeInViewProps = PropsWithChildren<{ style: ViewStyle }>;
 
@@ -30,7 +31,7 @@ const FadeInView: React.FC<FadeInViewProps> = (props) => {
 
 
 const Scene1 = () => {
-
+  const navigation = useNavigation();
   
   // Script with dialogue and choices
   const script = [
@@ -48,7 +49,7 @@ const Scene1 = () => {
   ];
   const collegPic = require("./COLLEGEOrientation2.jpg");
   const alexPic = require("./ALEX.png");
-  const playerPic = require("./Player.png");
+  //const playerPic = require("./Player.png");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [choiceMade, setChoiceMade] = useState(false);
 
@@ -74,8 +75,15 @@ const Scene1 = () => {
 
   const handleChoice = (choiceId: string) => {
     console.log("Choice selected:", choiceId);
-    // Handle the choice selection here
-    setChoiceMade(true);
+    if(choiceId==1){
+      navigation.navigate("AcademicSeminar");
+    }else if(choiceId==2){
+      navigation.navigate("CampusTour");
+    }else if(choiceId==3){
+      navigation.navigate("DormIntro");
+    }else if(choiceId==4){
+      navigation.navigate("WanderAlone");
+    }
   };
 
   return (

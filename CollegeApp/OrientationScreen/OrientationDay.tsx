@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { View, Text, Button, StyleSheet, Image } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import jsonData from './example.json'
 
 // Define the component
 const OrientationDay = () => {

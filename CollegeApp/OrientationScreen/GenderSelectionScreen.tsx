@@ -14,7 +14,7 @@ const GenderSelectionScreen = ({ route }) => {
       await AsyncStorage.setItem('@PlayerData', playerData);
       // Proceed to the next scene after saving
       Alert.alert("Success", "Your character's profile has been saved!", [
-        { text: "OK", onPress: () => navigation.navigate('Scene1') } // Use navigation.navigate to move to the next scene
+        { text: "OK", onPress: () => navigation.navigate('ChooseAvatar') } // Use navigation.navigate to move to the next scene
       ]);
     } catch (e) {
       console.log('Failed to save the data to storage', e);
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
   },
   question: {
     fontSize: 18,
+    backgroundColor: '#D3D3D3',
     fontWeight: 'bold',
     textAlign: 'center',
     marginVertical: 20,
