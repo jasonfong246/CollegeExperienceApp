@@ -1,49 +1,64 @@
-import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
-const GenderImage = ({ gender }) => {
+const GenderImage = ({ gender, onSelect }) => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   // Define the image sources based on gender
-  const PlayerMale1 = require("./malePlayer.png");
-  const PlayerFemale1 = require("./PlayerFemale1.png");
-  const PlayerMale2 = require("./PlayerMale.png");
-  const PlayerFemale2 = require("./PlayerFemale2.png");
+  const imageDetails = {
+    male: [
+      { id: "PlayerMale1", source: require("./malePlayer.png") },
+      { id: "PlayerMale2", source: require("./PlayerMale.png") }
+    ],
+    female: [
+      { id: "PlayerFemale1", source: require("./PlayerFemale1.png") },
+      { id: "PlayerFemale2", source: require("./PlayerFemale2.png") }
+    ],
+    // Add more genders if necessary
+  };
 
-  // Choose the image source based on the gender value
-  let imageSource;
-  let imageSource2;
-  switch (gender) {
-    case 'male':
-      imageSource = PlayerMale1;
-      imageSource2 = PlayerMale2;
-      break;
-    case 'female':
-      imageSource = PlayerFemale1;
-      imageSource2 = PlayerFemale2;
-      break;
-    default:
-      imageSource = PlayerFemale2;
-      imageSource2 = PlayerMale2;
-      break;
-  }
+  // Get images based on the selected gender
+  const genderImages = imageDetails[gender] || [];
+
+  const handleSelect = (image) => {
+    setSelectedImage(image.id);  // Save the selected image id
+    if (onSelect) {
+      onSelect(image.id);  // Pass the image id to the parent component
+    }
+  };
 
   return (
     <View style={styles.container}>
-      {/* Display the images */}
-      <Image source={imageSource} style={styles.image} />
-      <Image source={imageSource2} style={styles.image} />
+      {genderImages.map((image) => (
+        <TouchableOpacity key={image.id} onPress={() => handleSelect(image)}>
+          <Image
+            source={image.source}
+            style={[
+              styles.image,
+              selectedImage === image.id && styles.selected  // Apply selected style if image is selected
+            ]}
+          />
+        </TouchableOpacity>
+      ))}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   image: {
-    width: 200, // Adjust the width as needed
-    height: 200, // Adjust the height as needed
+    width: 200,
+    height: 200,
     resizeMode: 'contain',
-    marginBottom: 10, // Adjust the margin between images as needed
+    margin: 10,
+  },
+  selected: {
+    borderWidth: 3,
+    borderColor: 'blue',
   },
 });
 
