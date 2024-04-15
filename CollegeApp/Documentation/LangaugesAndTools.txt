@@ -1,0 +1,17 @@
+We used react native to make the Android app and SQLite to handle any backend development: storing name, gender, etc.
+ In the repository we split each part of the introduction section into multiple folders. 
+ So each choice had its own folder dedicated to it and comprised of default React Native required files, images and a TSX file. 
+ The TSX is where most of the action happens. In it you’ll see us break it down into the imports, React Native compatibility code, and so scripts and styling. 
+Check the TSX file for more information.
+
+
+Installing Features:
+
+You’ll need Visual Studio Code, React Native, NodeJS, and Android Studio
+For this we followed this guide
+https://reactnative.dev/docs/environment-setup?guide=native
+
+And add this line to the terminal when you’re done installing:
+npm install react-native-sound --save
+
+We tried adding sound but never had the time to complete it.

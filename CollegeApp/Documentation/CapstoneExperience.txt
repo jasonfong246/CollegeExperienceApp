@@ -1,0 +1,3 @@
+Our sponsor is Dr. Nedra Allen and she wanted a college simulation that would take a user through their undergraduate degree. 
+Our experiences with the sponsor were great as she was very lenient and was always easily accessible. 
+We needed to make an Android app containing the game.

@@ -1,0 +1,6 @@
+A user makes a game and then creates a character with a name, gender, and character image based on gender. However we did not implement the player name 
+and image to the game. As the player moves on they make choices that will take them to different screens. 
+
+Ideas We Had:
+Essentially have it set day by day and have the player start in the dorm and have choices on what to do: class, party, etc. but have the player 
+end up in a dorm or a place to continue to the next day.

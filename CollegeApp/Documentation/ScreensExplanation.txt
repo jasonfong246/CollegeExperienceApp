@@ -1,0 +1,39 @@
+We were trying to have a choose your own adventure style game with avatar creation and player stats that would get affected by the decisions. 
+However, we did not have enough time to finish it and only had the foundation. All images were found online and cropped to meet each scenario.
+
+the stats are as follows:
+Intelligence
+1. Uninformed - Basic awareness, limited understanding.
+2. Informed - Solid knowledge, good understanding of subjects.
+3. Scholar - Advanced knowledge, deep understanding in specific areas.
+4. Genius - Exceptional knowledge, broad and deep understanding across fields.
+5. Visionary - Revolutionary knowledge, transcending traditional boundaries of understanding.
+
+Courage
+1. Cautious - Hesitant to take risks, prefers safe paths.
+2. Brave - Willing to face fears, takes risks when necessary.
+3. Valiant - Actively seeks challenges, undeterred by danger.
+4. Fearless - No challenge is too great, faces the impossible with confidence.
+5. Legendary - Known far and wide for unparalleled courage, inspires others.
+
+Example of stats:
+Dexterity
+1. Clumsy - Lacks finesse and skill, prone to errors.
+2. Adept - Competent with tasks, shows skill improvement.
+3. Expert - Highly skilled, efficient and effective in execution.
+4. Master - Peak proficiency, performs complex tasks with ease.
+5. Virtuoso - Transcends mastery, dexterity appears effortless and artistic.
+
+Compassion
+1. Detached - Basic empathy, struggles with understanding others.
+2. Caring - Shows empathy and consideration, helps when able.
+3. Benevolent - Actively seeks to assist and understand others, deeply empathetic.
+4. Altruistic - Puts others' needs first, compassionate to a fault.
+5. Saintly - Embodiment of pure compassion, inspires change through kindness.
+
+Elegance
+1. Plain - Unremarkable presence, easily overlooked.
+2. Pleasant - Likable and approachable, makes a good impression.
+3. Captivating - Draws attention effortlessly, charming and engaging.
+4. Enthralling - Unforgettable presence, deeply influences others.
+5. Iconic - Sets the standard for allure and charm, impacts society.
