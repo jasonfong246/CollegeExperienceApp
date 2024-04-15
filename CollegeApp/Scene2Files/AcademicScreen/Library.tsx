@@ -47,8 +47,9 @@ const Library = () => {
       ]
     }
   ];
-  const collegPic = require("./COLLEGEOrientation2.jpg");
-  const alexPic = require("./ALEX.png");
+  const collegLib = require("./CollegeLibrary.jpg");
+  const seminarLeader = require("./SeminarLeader.png");
+  const Jamie = require("./JAMIE.png");
   const playerPic = require("./Player.png");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [choiceMade, setChoiceMade] = useState(false);
@@ -81,7 +82,7 @@ const Library = () => {
 
   return (
     <View style={styles.screenContainer}>
-      <Image source={collegPic} style={{ width: 400, height: 350, alignSelf: 'center', position: 'absolute', top: 50 }}></Image>
+      <Image source={collegLib} style={{ width: 400, height: 350, alignSelf: 'center', position: 'absolute', top: 50 }}></Image>
 
       <FadeInView
         style={{
@@ -89,15 +90,7 @@ const Library = () => {
           height: 250,
           backgroundColor: 'transparent', // Set background to transparent for Image
         }}>
-        <Image
-          source={alexPic} // Replace with your image source
-          style={{
-            flex: 1,
-            width: '100%',
-            height: '100%',
-            resizeMode: 'contain', // Adjust resizeMode as needed
-          }}
-        />
+       <Image source={Jamie} style={{ width: 300, height: 300, resizeMode: 'contain' }}/>
       </FadeInView>
 
       {(script[currentIndex].type === 'dialogue') && (

@@ -52,9 +52,10 @@ const AcademicSeminar = () => {
     { type: 'dialogue', text: "As students from the seminar disperse across the campus, you take a moment to appreciate the beauty of the university grounds. The choice to attend the seminar has sparked a newfound enthusiasm for learning and personal growth." },
     { type: 'dialogue', text: "This is just the beginning. There’s so much more to learn and explore. I’m ready for it." }
   ];
-  const collegPic = require("./COLLEGEOrientation2.jpg");
-  const alexPic = require("./ALEX.png");
+  const collegPic = require("./EmptyClassroom.jpg");
+  const seminarLeader = require("./SeminarLeader.png");
   const playerPic = require("./Player.png");
+  const Jamie = require("./JAMIE.png");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [choiceMade, setChoiceMade] = useState(false);
 
@@ -84,24 +85,18 @@ const AcademicSeminar = () => {
 
   return (
     <View style={styles.screenContainer}>
-      <Image source={collegPic} style={{ width: 400, height: 350, alignSelf: 'center', position: 'absolute', top: 50 }}></Image>
+      <Image source={collegPic} style={{ width: 400, height: 350, alignSelf: 'center', position: 'absolute', top: 50 }} />
 
-      <FadeInView
-        style={{
-          width: 250,
-          height: 250,
-          backgroundColor: 'transparent', // Set background to transparent for Image
-        }}>
-        <Image
-          source={alexPic} // Replace with your image source
-          style={{
-            flex: 1,
-            width: '100%',
-            height: '100%',
-            resizeMode: 'contain', // Adjust resizeMode as needed
-          }}
-        />
-      </FadeInView>
+<FadeInView style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 20 }}>
+  <Image
+    source={seminarLeader}
+    style={{ width: 125, height: 125, resizeMode: 'contain' }}
+  />
+  <Image
+    source={Jamie}
+    style={{ width: 125, height: 125, resizeMode: 'contain' }}
+  />
+</FadeInView>
 
       {(script[currentIndex].type === 'dialogue') && (
         <TouchableOpacity onPress={advanceScript} style={styles.dialogueBox}>
