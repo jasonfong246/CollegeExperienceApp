@@ -37,6 +37,12 @@ const ChooseAvatar = () => {//Add something for it to say something like this is
     navigation.navigate('Scene1'); // Make sure 'Scene1' is a valid route in your navigation setup
   };
 
+  const handleAvatarClick = () => {
+    // Handle click on avatar image
+    // For example, you can navigate to another screen for selecting avatar options
+    // navigation.navigate('AvatarOptions');
+  };
+
   return (
 
       
@@ -46,18 +52,19 @@ const ChooseAvatar = () => {//Add something for it to say something like this is
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
-      <View style={styles.content}>
-        {/* Display gender-specific image or a default message if gender is not set */}
-        {gender ? (
-          <GenderImage gender={gender.toLowerCase()} />
-        ) : (
-          <Text>No gender selected.</Text>
-        )}
+      <TouchableOpacity onPress={handleAvatarClick}>
+        <View style={styles.content}>
+          {gender ? (
+            <GenderImage gender={gender.toLowerCase()} />
+          ) : (
+            <Text>No gender selected.</Text>
+          )}
+        </View>
+      </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button} onPress={handleNext}>
-          <Text style={styles.buttonText}>Next</Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity style={styles.button} onPress={handleNext}>
+        <Text style={styles.buttonText}>Next</Text>
+      </TouchableOpacity>
     </KeyboardAvoidingView>
  
   );

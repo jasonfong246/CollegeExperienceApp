@@ -49,7 +49,7 @@ const WanderAlone = () => {
       ]
     }
   ];
-  const collegPic = require("./COLLEGEOrientation2.jpg");
+  const artisticScene = require("./ArtisticScenery.jpg");
   const alexPic = require("./ALEX.png");
   const playerPic = require("./Player.png");
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -83,7 +83,7 @@ const WanderAlone = () => {
 
   return (
     <View style={styles.screenContainer}>
-      <Image source={collegPic} style={{ width: 400, height: 350, alignSelf: 'center', position: 'absolute', top: 50 }}></Image>
+      <Image source={artisticScene} style={{ width: 400, height: 350, alignSelf: 'center', position: 'absolute', top: 50 }}></Image>
 
       <FadeInView
         style={{
@@ -91,15 +91,7 @@ const WanderAlone = () => {
           height: 250,
           backgroundColor: 'transparent', // Set background to transparent for Image
         }}>
-        <Image
-          source={alexPic} // Replace with your image source
-          style={{
-            flex: 1,
-            width: '100%',
-            height: '100%',
-            resizeMode: 'contain', // Adjust resizeMode as needed
-          }}
-        />
+       
       </FadeInView>
 
       {(script[currentIndex].type === 'dialogue') && (

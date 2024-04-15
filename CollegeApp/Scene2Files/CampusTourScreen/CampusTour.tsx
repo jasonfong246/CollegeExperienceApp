@@ -55,8 +55,9 @@ const CampusTour = () => {
       ]
     }
   ];
-  const collegPic = require("./COLLEGEOrientation2.jpg");
-  const alexPic = require("./ALEX.png");
+  const collegPic = require("./CollegeCampus.jpg");
+  const lucasPic = require("./Lucas.png");
+  const studentsPic = require("./collegeStudent.png");
   const playerPic = require("./Player.png");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [choiceMade, setChoiceMade] = useState(false);
@@ -93,18 +94,18 @@ const CampusTour = () => {
 
       <FadeInView
         style={{
-          width: 250,
-          height: 250,
-          backgroundColor: 'transparent', // Set background to transparent for Image
+          flexDirection: 'row', // Set flexDirection to 'row' for horizontal alignment
+          justifyContent: 'space-between', // Align children evenly along the main axis
+          alignItems: 'center', // Align children along the cross axis
+          paddingHorizontal: 20, // Add some horizontal padding for spacing
         }}>
         <Image
-          source={alexPic} // Replace with your image source
-          style={{
-            flex: 1,
-            width: '100%',
-            height: '100%',
-            resizeMode: 'contain', // Adjust resizeMode as needed
-          }}
+          source={lucasPic}
+          style={{ width: 200, height: 200, resizeMode: 'contain' }}
+        />
+        <Image
+          source={studentsPic}
+          style={{ width: 180, height: 180, resizeMode: 'contain' }}
         />
       </FadeInView>
 

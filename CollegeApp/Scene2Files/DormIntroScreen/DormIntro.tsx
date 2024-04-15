@@ -51,8 +51,8 @@ const DormIntro = () => {
       ]
     }
   ];
-  const collegPic = require("./COLLEGEOrientation2.jpg");
-  const alexPic = require("./ALEX.png");
+  const collegPic = require("./CollegeDorm.jpg");
+  const roommate = require("./Roommate.png");
   const playerPic = require("./Player.png");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [choiceMade, setChoiceMade] = useState(false);
@@ -85,24 +85,24 @@ const DormIntro = () => {
 
   return (
     <View style={styles.screenContainer}>
-      <Image source={collegPic} style={{ width: 400, height: 350, alignSelf: 'center', position: 'absolute', top: 50 }}></Image>
+       <Image source={collegPic} style={{ width: 400, height: 350, alignSelf: 'center', position: 'absolute', top: 50 }}></Image>
 
-      <FadeInView
-        style={{
-          width: 250,
-          height: 250,
-          backgroundColor: 'transparent', // Set background to transparent for Image
-        }}>
-        <Image
-          source={alexPic} // Replace with your image source
-          style={{
-            flex: 1,
-            width: '100%',
-            height: '100%',
-            resizeMode: 'contain', // Adjust resizeMode as needed
-          }}
-        />
-      </FadeInView>
+<FadeInView
+  style={{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent', // Set background to transparent for Image
+  }}>
+  <Image
+    source={roommate} // Replace with your image source
+    style={{
+      width: 300,
+      height: 300,
+      resizeMode: 'contain', // Adjust resizeMode as needed
+    }}
+  />
+</FadeInView>
 
       {(script[currentIndex].type === 'dialogue') && (
         <TouchableOpacity onPress={advanceScript} style={styles.dialogueBox}>

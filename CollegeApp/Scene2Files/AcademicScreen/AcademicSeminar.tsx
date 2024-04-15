@@ -94,7 +94,8 @@ const AcademicSeminar = () => {
   />
   <Image
     source={Jamie}
-    style={{ width: 125, height: 125, resizeMode: 'contain' }}
+    style={{  width: '100%',
+    height: '100%', resizeMode: 'contain' }}
   />
 </FadeInView>
 
