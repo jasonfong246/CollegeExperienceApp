@@ -1,0 +1,26 @@
+Game Application Database Usage Guide:
+
+This guide provides detailed information on how we use AsyncStorage in our React Native application to manage player data throughout the game lifecycle. The game involves multiple screens where the player's information (name and gender) and game state (last scene ID) are stored and retrieved.
+
+AsyncStorage Keys
+We use AsyncStorage to store data using unique keys. Here are the keys and their usage:
+
+@PlayerName: Stores the player's name.
+@PlayerData: Stores a JSON object containing the player's name and gender.
+@LastSceneId: Stores the ID of the last game scene accessed by the player.
+
+Screens and Their Functions
+
+GameManagementScreen
+Create Game: Directs the player to the "PrologueScreen". It assumes no initial data in AsyncStorage.
+
+Load Game: Retrieves the player's data (@PlayerData) and the last scene ID (@LastSceneId). If data is present, it navigates to the saved scene; otherwise, it alerts the user to create a new game.
+
+NameInputScreen
+Functionality: Allows the player to enter their name.
+
+Data Storage: Stores the entered name under the @PlayerName key in AsyncStorage. This screen initializes the process where subsequent data (gender and scene) will be appended.
+GenderSelectionScreen
+
+Retrieving Data: Fetches the player's name from @PlayerName for personalized prompts.
+Saving Data: Upon selecting a gender, the player's name and chosen gender are stored together under @PlayerData. Additionally, this action updates @LastSceneId to the next scene ID, ensuring the game's progress is saved.
