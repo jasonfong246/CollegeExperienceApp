@@ -1,46 +1,43 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 
-const Login = () => {
+const GameManagementScreen = () => {
   const navigation = useNavigation();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  let errMsg = false;
-  const handleLogin = () => {
-    // Here you can implement your login logic, such as sending a request to your backend server
-    if (username === 'admin' && password === 'password') {
-      // Successful login, navigate to Home screen
-      errMsg = false;
-      navigation.navigate("Home");
-    } else {
-      errMsg = true;
-      if(errMsg = true){
-        setErrorMessage('Invalid username or password');
+
+  const createGame = async () => {
+    // Navigate to the Prologue screen
+    navigation.navigate("PrologueScreen");
+  };
+
+  const loadGame = async () => {
+    try {
+      // Attempt to retrieve the stored player data and last scene ID
+      const playerData = await AsyncStorage.getItem('@PlayerData');
+      const sceneId = await AsyncStorage.getItem('@LastSceneId');
+      if (playerData !== null && sceneId !== null) {
+        // Navigate to the saved scene with the retrieved player data
+        navigation.navigate(sceneId, { playerData: JSON.parse(playerData) });
+      } else {
+        // Handle case where there is no game data saved
+        Alert.alert("No game found", "Please create a new game.");
       }
+    } catch (e) {
+      Alert.alert("Error", "Failed to load the game.");
+      console.error('Failed to retrieve the game data', e);
     }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.topCorner}>SWE Capstone Team NULL</Text>
-      <Text style={styles.title}>Login</Text>
-      {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
-      <TextInput
-        style={styles.input}
-        placeholder="Username"
-        onChangeText={setUsername}
-        value={username}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        onChangeText={setPassword}
-        value={password}
-        secureTextEntry
-      />
-      <Button title="Login" onPress={handleLogin} />
+      <Text style={styles.title}>Welcome!</Text>
+      <TouchableOpacity style={styles.button} onPress={createGame}>
+        <Text style={styles.buttonText}>Create Game</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={loadGame}>
+        <Text style={styles.buttonText}>Load Game</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -51,29 +48,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
+    backgroundColor: '#f5f6fa',
   },
   title: {
     fontSize: 24,
+    fontWeight: 'bold',
     marginBottom: 20,
   },
-  topCorner: {
-    position: 'absolute',
-    top:5,
-    left:10,
-    fontWeight: 'bold',
+  button: {
+    backgroundColor: '#487eb0',
+    padding: 20,
+    borderRadius: 8,
+    marginVertical: 10,
+    width: '80%',
+    alignItems: 'center',
   },
-  input: {
-    width: '100%',
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingHorizontal: 10,
-  },
-  error: {
-    color: 'red',
-    marginBottom: 10,
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
   },
 });
 
-export default Login;
+export default GameManagementScreen;
