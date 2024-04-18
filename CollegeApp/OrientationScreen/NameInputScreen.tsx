@@ -4,9 +4,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const NameInputScreen = ({ navigation }) => {
   const [name, setName] = useState('');
-  const NameImage = require("./WhoWillYouBe.jpg");
-  const GreyBoxImage = require("./GREYBOX.png");
-  const WhiteBoxImage = require("./WhiteBox.png");
+  const NameImage = require("./Images/WhoWillYouBe.jpg");
+  const GreyBoxImage = require("./Images/GREYBOX.png");
+  const WhiteBoxImage = require("./Images/WhiteBox.png");
 
   const storeName = async (name) => {
     try {

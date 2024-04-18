@@ -52,10 +52,10 @@ const AcademicSeminar = () => {
     { type: 'dialogue', text: "As students from the seminar disperse across the campus, you take a moment to appreciate the beauty of the university grounds. The choice to attend the seminar has sparked a newfound enthusiasm for learning and personal growth." },
     { type: 'dialogue', text: "This is just the beginning. There’s so much more to learn and explore. I’m ready for it." }
   ];
-  const collegPic = require("./EmptyClassroom.jpg");
-  const seminarLeader = require("./SeminarLeader.png");
-  const playerPic = require("./Player.png");
-  const Jamie = require("./JAMIE.png");
+  const collegPic = require("./Images/EmptyClassroom.jpg");
+  const seminarLeader = require("./Images/SeminarLeader.png");
+  const playerPic = require("./Images/Player.png");
+  const Jamie = require("./Images/JAMIE.png");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [choiceMade, setChoiceMade] = useState(false);
 

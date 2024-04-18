@@ -47,10 +47,10 @@ const Library = () => {
       ]
     }
   ];
-  const collegLib = require("./CollegeLibrary.jpg");
-  const seminarLeader = require("./SeminarLeader.png");
-  const Jamie = require("./JAMIE.png");
-  const playerPic = require("./Player.png");
+  const collegLib = require("./Images/CollegeLibrary.jpg");
+  const seminarLeader = require("./Images/SeminarLeader.png");
+  const Jamie = require("./Images/JAMIE.png");
+  const playerPic = require("./Images/Player.png");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [choiceMade, setChoiceMade] = useState(false);
 

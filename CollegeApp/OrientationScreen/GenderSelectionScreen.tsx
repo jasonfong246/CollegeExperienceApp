@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native'; // Ensure this is impo
 const GenderSelectionScreen = ({ route }) => {
   const navigation = useNavigation(); // Use the useNavigation hook if not directly receiving the navigation prop
   const { name } = route.params; // Retrieve the name from route params
-  const genderPic = require("./GenderIMG.jpeg");
+  const genderPic = require("./Images/GenderIMG.jpeg");
 
   const savePlayerData = async (gender) => {
     try {

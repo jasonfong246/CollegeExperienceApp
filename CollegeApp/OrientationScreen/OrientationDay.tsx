@@ -7,7 +7,7 @@ const OrientationDay = () => {
 
   const navigation = useNavigation();
   const route = useRoute();
-  const collegPic=require("./OrientationCollege1.jpg");
+  const collegPic=require("./Images/OrientationCollege1.jpg");
   const message = route.params?.message || '';
   const handleLogout = () => {
     // Here you can implement logout logic if needed

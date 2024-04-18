@@ -14,7 +14,7 @@ const  prologueTexts = [
 const PrologueScreen = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigation = useNavigation();
-  const ProlougeIMg=require("./ProloguePic.jpg");
+  const ProlougeIMg=require("./Images/ProloguePic.jpg");
 
   const handleTextPress = () => {
     if (currentIndex <  prologueTexts.length - 1) {

@@ -55,10 +55,10 @@ const CampusTour = () => {
       ]
     }
   ];
-  const collegPic = require("./CollegeCampus.jpg");
-  const lucasPic = require("./Lucas.png");
-  const studentsPic = require("./collegeStudent.png");
-  const playerPic = require("./Player.png");
+  const collegPic = require("./Images/CollegeCampus.jpg");
+  const lucasPic = require("./Images/Lucas.png");
+  const studentsPic = require("./Images/collegeStudent.png");
+  const playerPic = require("./Images/Player.png");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [choiceMade, setChoiceMade] = useState(false);
 

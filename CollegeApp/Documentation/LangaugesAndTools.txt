@@ -7,11 +7,13 @@ Check the TSX file for more information.
 
 Installing Features:
 
-You’ll need Visual Studio Code, React Native, NodeJS, and Android Studio
+You’ll need Visual Studio Code, React Native, NodeJS, and Android Studio (for the emulator)
 For this we followed this guide
 https://reactnative.dev/docs/environment-setup?guide=native
 
 And add this line to the terminal when you’re done installing:
 npm install react-native-sound --save
 
-We tried adding sound but never had the time to complete it.
+**We tried adding sound but never had the time to complete it.**
+
+**How to run the code** type this in the terminal => npm run android

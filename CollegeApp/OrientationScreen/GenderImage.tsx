@@ -7,12 +7,12 @@ const GenderImage = ({ gender, onSelect }) => {
   // Define the image sources based on gender
   const imageDetails = {
     male: [
-      { id: "PlayerMale1", source: require("./malePlayer.png") },
-      { id: "PlayerMale2", source: require("./PlayerMale.png") }
+      { id: "PlayerMale1", source: require("./Images/malePlayer.png") },
+      { id: "PlayerMale2", source: require("./Images/PlayerMale.png") }
     ],
     female: [
-      { id: "PlayerFemale1", source: require("./PlayerFemale1.png") },
-      { id: "PlayerFemale2", source: require("./PlayerFemale2.png") }
+      { id: "PlayerFemale1", source: require("./Images/PlayerFemale1.png") },
+      { id: "PlayerFemale2", source: require("./Images/PlayerFemale2.png") }
     ],
     // Add more genders if necessary
   };

@@ -51,9 +51,9 @@ const DormIntro = () => {
       ]
     }
   ];
-  const collegPic = require("./CollegeDorm.jpg");
-  const roommate = require("./Roommate.png");
-  const playerPic = require("./Player.png");
+  const collegPic = require("./Images/CollegeDorm.jpg");
+  const roommate = require("./Images/Roommate.png");
+  const playerPic = require("./Images/Player.png");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [choiceMade, setChoiceMade] = useState(false);
 
