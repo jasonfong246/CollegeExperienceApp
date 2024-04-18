@@ -9,11 +9,6 @@ const OrientationDay = () => {
   const route = useRoute();
   const collegPic=require("./Images/OrientationCollege1.jpg");
   const message = route.params?.message || '';
-  const handleLogout = () => {
-    // Here you can implement logout logic if needed
-    // For simplicity, this example just navigates back to the Login screen
-    navigation.navigate("Login");
-  };
   // Script with dialogue and choices
   const script = [
     { type: 'dialogue', text: "Alex: Good morning, everyone! Welcome to what will be some of the most memorable years of your lives. I'm Alex, a senior here, and I'll be your guide today. We’re thrilled to have you join our university family!" },
@@ -47,10 +42,6 @@ const OrientationDay = () => {
   return (
     <View style={styles.container}>
     <Text style={styles.topCorner}>SWE Capstone Team NULL</Text>
-    
-    <View style={styles.logout}>
-      <Button title="Logout" onPress={handleLogout} />
-    </View>
     
   
     <Image source={collegPic} style={{width: 600, height: 350, alignSelf: 'center',position: 'absolute',top: 0}}></Image>

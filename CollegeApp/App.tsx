@@ -2,7 +2,7 @@ import React from "react";
 import {Text,View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { TheTeam,About,Login, Home } from "./HomeScreen";
+import { Login } from "./HomeScreen";
 import { PrologueScreen, NameInputScreen, GenderSelectionScreen, OrientationDay, Scene1, ChooseAvatar  } from "./OrientationScreen";
 import { AcademicSeminar, Library } from "./Scene2Files/AcademicScreen";
 import { CampusTour } from "./Scene2Files/CampusTourScreen";
@@ -16,13 +16,7 @@ export default function App () {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen 
-            name="Login" component={Login} />
-        <Stack.Screen 
-            name="Home" component={Home} />
-        <Stack.Screen 
-            name="TheTeam" component={TheTeam} />
-        <Stack.Screen 
-            name="About" component={About} />      
+            name="Login" component={Login} />   
         <Stack.Screen 
             name="PrologueScreen" component={PrologueScreen} />
         <Stack.Screen 

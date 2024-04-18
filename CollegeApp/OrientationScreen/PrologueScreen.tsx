@@ -24,21 +24,10 @@ const PrologueScreen = () => {
       navigation.navigate('NameInputScreen');
     }
   };
-
-  const handleLogout = () => {
-    // Here you can implement logout logic if needed
-    // For simplicity, this example just navigates back to the Login screen
-    navigation.navigate("Login");
-  };
-
   return (
     
     <View style={styles.container}>
        <Text style={styles.topCorner}>SWE Capstone Team NULL</Text>
-      
-      <View style={styles.logout}>
-        <Button title="Logout" onPress={handleLogout} />
-      </View>
       <Image source={ProlougeIMg} style={{width: 600, height: 350, alignSelf: 'center',position: 'absolute',top: 50}}>
 
       </Image>
